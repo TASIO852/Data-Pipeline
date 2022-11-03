@@ -1,70 +1,51 @@
 # importando as bibliotecas
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
-
 from kafka import KafkaConsumer
-from wordcloud import WordCloud
-
-import matplotlib.pyplot as plt
-import json
-from IPython.display import clear_output
 
 if __name__ == "__main__":
 
-    # configuração do spark
+# configuração do spark
     spark = SparkSession \
         .builder \
-        .appName("Kafka consultas em lote") \
+        .appName("Kafka tweet") \
         .master("spark://spark-master:7077") \
-        .config("spark.mongodb.input.uri", "mongodb://hduser:bigdata@127.0.0.1:27017/dezyre") \
+        .config("spark.mongodb.input.uri", "mongodb://http:localhost@127.0.0.1:27017/twitter") \
+        .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0") \
         .config('spark.jars.packages', 'org.mongodb.spark:mongo-spark-connector_2.12:3.0.1') \
+        .enableHiveSupport() \
         .getOrCreate()
+        
+# log information    
+    spark.sparkContext.setLogLevel('INFO ')
 
 # configuração do kafka
     KAFKA_BOOTSTRAP_SERVERS_CONS = ['localhost:9092']
-    KAFKA_TOPIC_NAME_CONS = 'topic-name'
-    CONSUMER = KafkaConsumer(KAFKA_TOPIC_NAME_CONS, group_id='group1',
-                             bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS_CONS)
+    KAFKA_TOPIC_NAME_CONS = 'tweet'
 
-
-# geração da nuvem de palavras em tempo real
-
-    frases = ''
-    for messagem in CONSUMER:
-        texto = json.loads(messagem.value.decode('utf-8'))
-        frases = frases + texto['tweet']
-        clear_output()
-        wordcloud = WordCloud(max_font_size=100, width=1520,
-                              height=535).generate(frases)
-        plt.figure(figsize=(16, 9))
-        plt.imshow(wordcloud)
-        plt.axis("off")
-        plt.show()
-# Construir um DataFrame que leia topic-name
-    batch_df = spark \
-        .read \
+# Construir um DataFrame que leia tweet
+    df = spark \
+        .readStream \
         .format("kafka") \
         .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP_SERVERS_CONS) \
         .option("subscribe", KAFKA_TOPIC_NAME_CONS) \
+        .option("startingOffsets", "earliest") \
         .load()
 
-    batch_df.printSchema()
-
 # Escrevendo os dados do kafka no spark
-
-    batch_df.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)") \
-        .write \
+    df.selectExpr("CAST(twitter AS STRING)", "CAST(twitternw AS STRING)") \
+        .writeStream \
         .format("kafka") \
         .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP_SERVERS_CONS) \
         .option("topic", KAFKA_TOPIC_NAME_CONS) \
         .save()
 
 # ver dados
-    batch_df.printSchema()
-    batch_df.show(5)
+    df.printSchema()
+    df.show(5)
 
 # Gravando os dados no Mongodb
-    batch_df = spark.createDataFrame([
+    df = spark.createDataFrame([
         Row(id=1, name='vijay', marks=67),
         Row(id=2, name='Ajay', marks=88),
         Row(id=3, name='jay', marks=79),
@@ -74,7 +55,7 @@ if __name__ == "__main__":
     ])
 
 
-    batch_df.select("id", "name", "marks").write\
+    df.select("id", "name", "marks").write\
         .format('com.mongodb.spark.sql.DefaultSource')\
-        .option("url", "mongodb://http:bigdata@127.0.0.1:27017/twitter") \
+        .option("url", "mongodb://http:localhost@127.0.0.1:27017/twitter") \
         .save()

@@ -18,10 +18,10 @@
 2. Crie o topico com o comando
 
 ```
-  kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic topic-name
+  kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic tweet
 ```
 
-3. Rode o producer
+1. Rode o producer
 
 ### Configuração do Spark
 
@@ -38,4 +38,3 @@ spark-submit \
 ### Configuração do Airflow (Automatizar)
 
 ## Referências:
-
