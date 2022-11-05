@@ -10,7 +10,7 @@ if __name__ == "__main__":
         .builder \
         .appName("Kafka tweet") \
         .master("spark://spark-master:7077") \
-        .config("spark.mongodb.input.uri", "mongodb://http:localhost@127.0.0.1:27017/twitter") \
+        .config("spark.mongodb.input.uri", "mongodb://localhost:27017/twitter") \
         .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0") \
         .config('spark.jars.packages', 'org.mongodb.spark:mongo-spark-connector_2.12:3.0.1') \
         .enableHiveSupport() \
@@ -57,5 +57,5 @@ if __name__ == "__main__":
 
     df.select("id", "name", "marks").write\
         .format('com.mongodb.spark.sql.DefaultSource')\
-        .option("url", "mongodb://http:localhost@127.0.0.1:27017/twitter") \
+        .option("url", "mongodb://localhost:27017//twitter") \
         .save()
