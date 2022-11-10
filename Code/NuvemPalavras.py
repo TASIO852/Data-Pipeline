@@ -3,7 +3,6 @@ from kafka import KafkaConsumer
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import json
-import pymongo
 from IPython.display import clear_output
 
 # Pegando dados da AWS
