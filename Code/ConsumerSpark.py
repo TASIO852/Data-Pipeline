@@ -2,6 +2,13 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
 from kafka import KafkaConsumer
+import findspark
+import os
+
+os.environ["JAVA_HOME"] = "C:/Program Files/Java/jre1.8.0_351"
+os.environ["SPARK_HOME"] = "C:/Users/tasio.guimaraes/Documents/Spark/spark-3.3.1-bin-hadoop3"
+
+findspark.init()
 
 if __name__ == "__main__":
 
@@ -10,9 +17,7 @@ if __name__ == "__main__":
         .builder \
         .appName("Kafka tweet") \
         .master("spark://spark-master:7077") \
-        .config("spark.mongodb.input.uri", "mongodb://localhost:27017/twitter") \
         .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.0") \
-        .config('spark.jars.packages', 'org.mongodb.spark:mongo-spark-connector_2.12:3.0.1') \
         .enableHiveSupport() \
         .getOrCreate()
         
@@ -44,18 +49,5 @@ if __name__ == "__main__":
     df.printSchema()
     df.show(5)
 
-# Gravando os dados no Mongodb
-    df = spark.createDataFrame([
-        Row(id=1, name='vijay', marks=67),
-        Row(id=2, name='Ajay', marks=88),
-        Row(id=3, name='jay', marks=79),
-        Row(id=4, name='binny', marks=99),
-        Row(id=5, name='omair', marks=99),
-        Row(id=6, name='divya', marks=98),
-    ])
+# Gravando os dados na AWS
 
-
-    df.select("id", "name", "marks").write\
-        .format('com.mongodb.spark.sql.DefaultSource')\
-        .option("url", "mongodb://localhost:27017//twitter") \
-        .save()
