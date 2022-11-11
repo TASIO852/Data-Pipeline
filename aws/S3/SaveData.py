@@ -10,4 +10,4 @@ def create_bucket(bucket_name, region):
     except ClientError as e:
         print(e)
 
-create_bucket("hello-bucket-python", "sa-east-1")
+create_bucket("hello-bucket-python", "us-east-1")
