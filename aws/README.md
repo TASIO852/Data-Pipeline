@@ -4,9 +4,7 @@
 
 - Para informaçoes mais detalhadas podemos acessar a [Documentation](https://docs.aws.amazon.com/index.html)
 
-> Oque e um datalake ?
-
-- Um data lake é um repositório centralizado que permite armazenar todos os seus dados estruturados e não estruturados em qualquer escala. Você pode armazenar seus dados como estão, sem precisar primeiro estruturá-los e executar diferentes tipos de análise, desde painéis e visualizações até processamento de big data, análise em tempo real e machine learning para orientar melhores decisões.
+- As ferramentas que vamos estudar vao ser so relacionadas a engenharia de dados e Big Data iremos seguir esse site de formaçao de datalakes [Site da aws](https://aws.amazon.com/pt/big-data/datalakes-and-analytics/)
 
 > Dicas e Ideias
 
@@ -21,28 +19,33 @@ This bundle contains a built executable of the AWS CLI v2.
 ## Installation
 
 To install the AWS CLI v2, run the `install` script:
+
 ```
-$ sudo ./install 
+$ sudo ./install
 You can now run: /usr/local/bin/aws --version
 ```
-This will install the AWS CLI v2 at `/usr/local/bin/aws`.  Assuming
+
+This will install the AWS CLI v2 at `/usr/local/bin/aws`. Assuming
 `/usr/local/bin` is on your `PATH`, you can now run:
+
 ```
 $ aws --version
 ```
 
-
 ### Installing without sudo
 
-If you don't have ``sudo`` permissions or want to install the AWS
+If you don't have `sudo` permissions or want to install the AWS
 CLI v2 only for the current user, run the `install` script with the `-b`
 and `-i` options:
+
 ```
 $ ./install -i ~/.local/aws-cli -b ~/.local/bin
-``` 
+```
+
 This will install the AWS CLI v2 in `~/.local/aws-cli` and create
 symlinks for `aws` and `aws_completer` in `~/.local/bin`. For more
 information about these options, run the `install` script with `-h`:
+
 ```
 $ ./install -h
 ```
@@ -52,19 +55,21 @@ $ ./install -h
 If you run the `install` script and there is a previously installed version
 of the AWS CLI v2, the script will error out. To update to the version included
 in this bundle, run the `install` script with `--update`:
+
 ```
 $ sudo ./install --update
 ```
 
-
 ### Removing the installation
 
 To remove the AWS CLI v2, delete the its installation and symlinks:
+
 ```
 $ sudo rm -rf /usr/local/aws-cli
 $ sudo rm /usr/local/bin/aws
 $ sudo rm /usr/local/bin/aws_completer
 ```
+
 Note if you installed the AWS CLI v2 using the `-b` or `-i` options, you will
 need to remove the installation and the symlinks in the directories you
 specified.
@@ -99,7 +104,7 @@ O AWS Identity and Access Management (IAM) é um serviço da web que ajuda você
 
 - faz o gerenciamento de acesos e recursos dos serviços ofertados na aws
 - sempre quando for usar a ferramenta pegar todas as senha e credenciais pq depois nao da pra recuperar
-- nao cobra nada 
+- nao cobra nada
 
 # EC2
 
@@ -110,3 +115,9 @@ O Amazon Elastic Compute Cloud (Amazon EC2) fornece capacidade de computação e
 [Documentação](https://docs.aws.amazon.com/ec2/index.html)
 
 [Preço](https://aws.amazon.com/pt/ec2/pricing/on-demand/)
+
+# EMR
+
+# RDS
+
+# Route 53
