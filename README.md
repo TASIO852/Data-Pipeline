@@ -84,5 +84,7 @@ Usaremos 4 ferramentas do aws para essa etapa
 - Glues
 - EMR
 - RDS
+- api getway
+- lambda
 
 ## Nuvem de palavras
