@@ -75,13 +75,14 @@ Crie duas variáveis de ambiente no seu Windows. A primeira chamada **SPARK_HOME
 
 ## AWS Save data
 
-puxar dados do twitter com apache kafka e pela api da alura juntar os dois e
+puxar dados do twitter com apache kafka e pela api juntar os dois e
 Armazenar em um s3,emr e glue da aws dados do twetter e tratar com apache spark
 
-Usaremos 3 ferramentas do aws para essa etapa
+Usaremos 4 ferramentas do aws para essa etapa
 
 - S3
 - Glues
 - EMR
+- RDS
 
 ## Nuvem de palavras
