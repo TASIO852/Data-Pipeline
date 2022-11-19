@@ -3,7 +3,7 @@ import socket
 import tweepy
 
 HOST = 'localhost'
-PORT = 8787
+PORT = 9090
 s = socket.socket()
 s.bind((HOST, PORT))
 print(f"Aguardando conexão na porta: {PORT}")
@@ -14,6 +14,7 @@ print(f"Recebendo solicitação de {address}")
 
 keyword = 'Futebol'
 token = 'AAAAAAAAAAAAAAAAAAAAAOCXiwEAAAAAaJGe8%2BmaJTsywF2ozyjHmAwKnwA%3DtktjdTuZaUKatSpjfPnUsujTvxQVMSVkOyNyOkmHBydxFKkMis'
+
 
 class GetTweets(tweepy.StreamingClient):
     def on_message(self, tweet):
