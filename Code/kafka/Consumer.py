@@ -7,7 +7,7 @@ from IPython.display import clear_output
 
 #configuração do kafka
 brokers = ['localhost:9092']
-topic = 'artigo-medium'
+topic = 'tweets'
 consumer = KafkaConsumer(topic, group_id = 'group1', bootstrap_servers = brokers)
 
 #geração da nuvem de palavras em tempo real
