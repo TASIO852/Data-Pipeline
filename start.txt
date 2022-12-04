@@ -1,2 +1,0 @@
-C:/Python310/python.exe c:/Users/Pcyes_User/OneDrive/Documentos/Data-Pipeline/Server/LisinerTwet.py
-C:/Python310/python.exe c:/Users/Pcyes_User/OneDrive/Documentos/Data-Pipeline/Server/ClientSpark.py

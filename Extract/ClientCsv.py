@@ -1,11 +1,11 @@
 from pyspark.sql import SparkSession
 import shutil
 
-# for item in ['/Data/src','/Data/src'] :
-#     try:
-#         shutil.rmtree(item)
-#     except OSError as err:
-#         print(f'Aviso: {err.strerror}')
+for item in ['/Data/src','/Data/src'] :
+    try:
+        shutil.rmtree(item)
+    except OSError as err:
+        print(f'Aviso: {err.strerror}')
 
 spark = SparkSession.builder.appName('SparkStreaming').getOrCreate()
 

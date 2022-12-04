@@ -12,7 +12,7 @@ s.listen(1)
 connection, address = s.accept()
 print(f"Recebendo solicitação de {address}")
 
-keyword = 'Futebol'
+keyword = 'Copa'
 token = 'AAAAAAAAAAAAAAAAAAAAAOCXiwEAAAAAaJGe8%2BmaJTsywF2ozyjHmAwKnwA%3DtktjdTuZaUKatSpjfPnUsujTvxQVMSVkOyNyOkmHBydxFKkMis'
 
 

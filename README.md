@@ -13,6 +13,8 @@
 2. Em seguida os dados vao ser armazenados na AWS
 3. Logo apos serão requeridos novamente para a montagem de uma nuvem de palavras
 
+![Alt text](/Mapping/Diagrama.png)
+
 ## Configuração do Kafka
 
 - [kafka Donwload container](https://docs.confluent.io/platform/current/platform-quickstart.html#prerequisites)
