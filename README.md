@@ -89,4 +89,6 @@ Usaremos 4 ferramentas do aws para essa etapa
 - api getway
 - lambda
 
+## Airflow orquestração
+
 ## Nuvem de palavras

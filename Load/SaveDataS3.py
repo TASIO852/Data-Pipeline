@@ -34,9 +34,6 @@ def upload_object(file_name, bucket, object_name=None):
     except ClientError as e:
         logging.error(e)
         return False
-
-    return True
-
     upload_object('sample_data/mnist_test.csv', 'cjmm-primeirobucket')
 
     response = s3_client.list_buckets()
@@ -44,6 +41,7 @@ def upload_object(file_name, bucket, object_name=None):
     print('Existing buckets:')
     for bucket in response['Buckets']:
         print(f'  {bucket["Name"]}')
+    return True
 
 # Resultado:
 # Existing buckets:
