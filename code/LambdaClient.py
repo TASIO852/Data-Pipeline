@@ -13,11 +13,11 @@ spark = SparkSession.builder.appName('TwitterStreaming').getOrCreate()
 def lambda_handler(event, context):
     # Insert your API credentials here
     credentials = { 
-        'consumer_key': "E6peB7LzSvEIujBuBdSxfFrAr",
-        'consumer_secret': "l19HxflcvQD4D5EH9OBg2E6A8DmnzBZoSHStMtsVkqKYaXUgXB",
-        'access_token': "1186393232722333697-aWp1rr3fFd4jD6W6B60cLC4LGaT1e3",
-        'access_token_secret': "UlxD2JL5C7forlkQsVK8Bd4tdbEqCM6lKi9TcgJl45xWb",
-        'bearer_token': 'AAAAAAAAAAAAAAAAAAAAAA2AlQEAAAAAXmvw6IhjxRzDeNhPuU2FugjR6Rg%3DGlpPm63CVe0IxKy9l5Id7JlT7lc2ODXdR6tu3FYaUMMNpVTsfm'
+        'consumer_key': "key",
+        'consumer_secret': "key",
+        'access_token': "key-key",
+        'access_token_secret': "key",
+        'bearer_token': 'key%key'
     }
 
     # Authentication
