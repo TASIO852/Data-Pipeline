@@ -1,18 +1,16 @@
-# twitter de jogadores da copa
-import boto3
 import tweepy
 from kafka import KafkaProducer
 import logging
 
 """API ACCESS KEYS"""
 
-consumerKey = "XXXX"
-consumerSecret = "XXXX"
-accessToken = "XXX-XXX"
+consumerKey = "XXXXX"
+consumerSecret = "XXXXX"
+accessToken = "XXXXX"
 accessTokenSecret = "XXXX"
 
 producer = KafkaProducer(bootstrap_servers='localhost:9092')
-search_term = 'jogadores da copa'
+search_term = 'Bitcoin'
 topic_name = 'twitter'
 
 
@@ -46,7 +44,3 @@ class TweetListener(tweepy.Stream):
 if __name__ == '__main__':
     twitter_stream = TweetListener(consumerKey, consumerSecret, accessToken, accessTokenSecret)
     twitter_stream.start_streaming_tweets(search_term)
-    # create the streaming object
-    #api = twitterAuth() ['#python']
-    #stream = MyTwitterStream(consumerKey, consumerSecret, accessToken, accessTokenSecret)
-    #stream.start_streaming_tweets(search_term)
