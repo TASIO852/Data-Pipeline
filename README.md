@@ -14,7 +14,7 @@
 3. Logo apos serão armazenados em um redshift
 4. E depois a montagem de um dashboard e uma nuvem de palavras
 
-![Alt text](/Mapping/Diagrama.png)
+![Alt text](Mapping/Diagrama.png)
 
 ## AWS Core
 
@@ -28,5 +28,3 @@
 ## Dashboard
 
 - Print tempalte
-
-## WordCloud
