@@ -7,7 +7,7 @@
 1. No projeto vai ser montada uma pipeline de dados do twitter extraídas por um aws lambda
 
 - um lambda ea API
-- O outro sao dados de diversos lugares
+- O outro sao dados de diversos lugaress
 
 1. Em seguida os dados vao ser armazenados em um S3
 2. O tratamento de dados sera com o apache spark e Glue
