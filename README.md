@@ -28,3 +28,8 @@
 ## Dashboard
 
 - Print tempalte
+
+## Oque falta ?
+
+- Incluir terraform
+- Subir para AWS
